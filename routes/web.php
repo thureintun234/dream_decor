@@ -17,11 +17,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', 'BackendController@index');
+//Backend
+Route::group(['prefix' => 'admin','middleware'=>['auth','admin']],function(){
+	Route::get('/dashboard', 'BackendController@index');
+});
 
 
 
-Auth::routes();
+//user login
+Route::group(['middleware'=>'auth'], function() {
+	Route::get('/order','OrderController@index');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
+//Excel
+Route::get('users/export', 'UsersController@export');
+
+
+
+
+
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
