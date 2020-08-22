@@ -20,6 +20,8 @@ Route::get('/', function () {
 //Backend
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']],function(){
 	Route::get('/dashboard', 'BackendController@index');
+
+	Route::resource('/categories','CategoryController');
 });
 
 
