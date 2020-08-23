@@ -2,9 +2,9 @@
 
 @section('content')
 	<div class="container-fluid">
-		<h2 class="d-inline-block">Category Create (Form)</h2>
-		<a href="{{route('categories.index')}}" class="btn btn-success float-right">Back Category</a>
-		<form class="row py-3" enctype="multipart/form-data" method="POST" action="{{route('categories.store')}}">
+		<h2 class="d-inline-block">Color Create (Form)</h2>
+		<a href="{{route('colors.index')}}" class="btn btn-success float-right">Back Color</a>
+		<form class="row py-3" enctype="multipart/form-data" method="POST" action="{{route('colors.store')}}">
 			@csrf
 			<div class="offset-md-2 col-md-8">
 				<div class="form-group">

@@ -11,6 +11,9 @@
 
   <title>SB Admin 2 - Dashboard</title>
 
+  {{-- select2 --}}
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
   <!-- Custom fonts for this template-->
   <link href="{{asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -373,6 +376,9 @@
     </div>
   </div>
 
+  {{-- select2 --}}
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('backend/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -390,6 +396,7 @@
   <script src="{{asset('backend/js/demo/chart-area-demo.js')}}"></script>
   <script src="{{asset('backend/js/demo/chart-pie-demo.js')}}"></script>
 
+ @yield('script')
 </body>
 
 </html>

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Color;
 
-class CategoryController extends Controller
+class ColorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('backend.categories.index',compact('categories'));
+        $colors = Color::all();
+        return view('backend.colors.index',compact('colors'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create');
+        return view('backend.colors.create');
     }
 
     /**
@@ -44,17 +44,17 @@ class CategoryController extends Controller
          //upload image
         $imageName = time().'.'.$request->photo->extension();
 
-        $request->photo->move(public_path('backend/categoryimg'),$imageName);
-        $myfile = 'backend/categoryimg/'.$imageName;
+        $request->photo->move(public_path('backend/colorimg'),$imageName);
+        $myfile = 'backend/colorimg/'.$imageName;
 
-        $category = new Category;
-        $category->name = $request->name;
-        $category->photo = $myfile;
+        $color = new Color;
+        $color->name = $request->name;
+        $color->photo = $myfile;
 
-        $category->save();
+        $color->save();
 
         //redirect
-        return redirect()->route('categories.index');
+        return redirect()->route('colors.index');
     }
 
     /**
@@ -65,7 +65,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('backend.categories.show');
+        //
     }
 
     /**
@@ -76,8 +76,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('backend.categories.edit',compact('category'));
+        $color = Color::find($id);
+        return view('backend.colors.edit',compact('color'));
     }
 
     /**
@@ -91,14 +91,14 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'photo' => 'sometimes'
+            'photo' => 'required'
         ]);
 
         if ($request->hasFile('photo')){
         $imageName = time().'.'.$request->photo->extension();
 
-        $request->photo->move(public_path('backend/categoryimg'),$imageName);
-        $myfile = 'backend/categoryimg/'.$imageName;
+        $request->photo->move(public_path('backend/colorimg'),$imageName);
+        $myfile = 'backend/colorimg/'.$imageName;
 
         unlink($request->oldphoto);
 
@@ -106,14 +106,14 @@ class CategoryController extends Controller
             $myfile = $request->oldphoto;
         }
 
-        $category = Category::find($id);
-        $category->name = $request->name;
-        $category->photo = $myfile;
+        $color = Color::find($id);
+        $color->name = $request->name;
+        $color->photo = $myfile;
 
-        $category->save();
+        $color->save();
 
         //redirect
-        return redirect()->route('categories.index');
+        return redirect()->route('colors.index');
     }
 
     /**
@@ -124,11 +124,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        unlink($category->photo);
+        $color = Color::find($id);
+        $color->delete();
+        unlink($color->photo);
 
         //redirect
-        return redirect()->route('categories.index');
+        return redirect()->route('colors.index');
     }
 }

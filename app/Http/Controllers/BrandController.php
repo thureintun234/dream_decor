@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Brand;
 
-class CategoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('backend.categories.index',compact('categories'));
+        $brands = Brand::all();
+        return view('backend.brands.index',compact('brands'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create');
+        return view('backend.brands.create');
     }
 
     /**
@@ -36,25 +36,26 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+         //validate
         $request->validate([
             'name' => 'required',
-            'photo' => 'required'
+            'logo' => 'required'
         ]);
 
-         //upload image
-        $imageName = time().'.'.$request->photo->extension();
+        //photo upload
+        $imageName = time().'.'.$request->logo->extension();
 
-        $request->photo->move(public_path('backend/categoryimg'),$imageName);
-        $myfile = 'backend/categoryimg/'.$imageName;
+        $request->logo->move(public_path('backend/brandimg'),$imageName);
+        $myfile = 'backend/brandimg/'.$imageName;
 
-        $category = new Category;
-        $category->name = $request->name;
-        $category->photo = $myfile;
+        $brand = new Brand;
+        $brand->name = $request->name;
+        $brand->logo = $myfile;
 
-        $category->save();
+        $brand->save();
 
         //redirect
-        return redirect()->route('categories.index');
+        return redirect()->route('brands.index');
     }
 
     /**
@@ -65,7 +66,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('backend.categories.show');
+        //
     }
 
     /**
@@ -76,8 +77,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('backend.categories.edit',compact('category'));
+        $brand = Brand::find($id);
+        return view('backend.brands.edit',compact('brand'));
     }
 
     /**
@@ -91,14 +92,14 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'photo' => 'sometimes'
+            'logo' => 'sometimes'
         ]);
 
-        if ($request->hasFile('photo')){
-        $imageName = time().'.'.$request->photo->extension();
+        if ($request->hasFile('logo')){
+        $imageName = time().'.'.$request->logo->extension();
 
-        $request->photo->move(public_path('backend/categoryimg'),$imageName);
-        $myfile = 'backend/categoryimg/'.$imageName;
+        $request->logo->move(public_path('backend/brandimg'),$imageName);
+        $myfile = 'backend/brandimg/'.$imageName;
 
         unlink($request->oldphoto);
 
@@ -106,14 +107,14 @@ class CategoryController extends Controller
             $myfile = $request->oldphoto;
         }
 
-        $category = Category::find($id);
-        $category->name = $request->name;
-        $category->photo = $myfile;
+        $brand = Brand::find($id);
+        $brand->name = $request->name;
+        $brand->logo = $myfile;
 
-        $category->save();
+        $brand->save();
 
         //redirect
-        return redirect()->route('categories.index');
+        return redirect()->route('brands.index');
     }
 
     /**
@@ -124,11 +125,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        unlink($category->photo);
-
+        $brand = Brand::find($id);
+        $brand->delete();
+        unlink($brand->logo);
         //redirect
-        return redirect()->route('categories.index');
+        return redirect()->route('brands.index');
     }
 }

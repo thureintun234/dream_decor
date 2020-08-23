@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Package;
 
-class CategoryController extends Controller
+class PackageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('backend.categories.index',compact('categories'));
+        $packages = Package::all();
+        return view('backend.packages.index',compact('packages'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create');
+        return view('backend.packages.create');
     }
 
     /**
@@ -38,23 +38,25 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'photo' => 'required'
+            'photo' => 'required',
+            'price' => 'required'
         ]);
 
          //upload image
         $imageName = time().'.'.$request->photo->extension();
 
-        $request->photo->move(public_path('backend/categoryimg'),$imageName);
-        $myfile = 'backend/categoryimg/'.$imageName;
+        $request->photo->move(public_path('backend/packageimg'),$imageName);
+        $myfile = 'backend/packageimg/'.$imageName;
 
-        $category = new Category;
-        $category->name = $request->name;
-        $category->photo = $myfile;
+        $package = new Package;
+        $package->name = $request->name;
+        $package->photo = $myfile;
+        $package->price = $request->price;
 
-        $category->save();
+        $package->save();
 
         //redirect
-        return redirect()->route('categories.index');
+        return redirect()->route('packages.index');
     }
 
     /**
@@ -65,7 +67,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('backend.categories.show');
+        //
     }
 
     /**
@@ -76,8 +78,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('backend.categories.edit',compact('category'));
+        $package = Package::find($id);
+        return view('backend.packages.edit',compact('package'));
     }
 
     /**
@@ -91,14 +93,15 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'photo' => 'sometimes'
+            'photo' => 'required',
+            'price' => 'required'
         ]);
 
         if ($request->hasFile('photo')){
         $imageName = time().'.'.$request->photo->extension();
 
-        $request->photo->move(public_path('backend/categoryimg'),$imageName);
-        $myfile = 'backend/categoryimg/'.$imageName;
+        $request->photo->move(public_path('backend/packageimg'),$imageName);
+        $myfile = 'backend/packageimg/'.$imageName;
 
         unlink($request->oldphoto);
 
@@ -106,14 +109,15 @@ class CategoryController extends Controller
             $myfile = $request->oldphoto;
         }
 
-        $category = Category::find($id);
-        $category->name = $request->name;
-        $category->photo = $myfile;
+        $package = Package::find($id);
+        $package->name = $request->name;
+        $package->photo = $myfile;
+        $package->price = $request->price;
 
-        $category->save();
+        $package->save();
 
         //redirect
-        return redirect()->route('categories.index');
+        return redirect()->route('packages.index');
     }
 
     /**
@@ -124,11 +128,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        unlink($category->photo);
+        $package = Package::find($id);
+        $package->delete();
+        unlink($package->photo);
 
         //redirect
-        return redirect()->route('categories.index');
+        return redirect()->route('packages.index');
     }
 }

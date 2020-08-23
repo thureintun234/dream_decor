@@ -19,7 +19,7 @@
 				<tr>
 					<td>{{$i++}}</td>
 					<td>{{$category->name}}</td>
-					<td><img src="{{$category->photo}}" width="100" height="100"></td>
+					<td><img src="{{asset($category->photo)}}" width="100" height="100" alt="CategoryImage"></td>
 					<td>
 						<a href="{{route('categories.edit',$category->id)}}" class="btn btn-warning">Edit</a>
 						<form method="POST" action="{{route('categories.destroy',$category->id)}}" onsubmit="return confirm('Are you Sure?')" class="d-inline-block">

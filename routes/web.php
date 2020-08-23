@@ -22,6 +22,16 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']],function(){
 	Route::get('/dashboard', 'BackendController@index');
 
 	Route::resource('/categories','CategoryController');
+
+	Route::resource('/brands','BrandController');
+
+	Route::resource('/subcategories','SubcategoryController');
+
+	Route::resource('/colors','ColorController');
+
+	Route::resource('/packages','PackageController');
+
+	Route::resource('/items','ItemController');
 });
 
 
@@ -32,7 +42,7 @@ Route::group(['middleware'=>'auth'], function() {
 });
 
 
-
+Auth::routes(['verify'=>true]);
 
 
 //Excel
@@ -42,6 +52,6 @@ Route::get('users/export', 'UsersController@export');
 
 
 
-Auth::routes(['verify'=>true]);
+
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');

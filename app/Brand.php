@@ -4,19 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Brand extends Model
 {
     protected $fillable = [
-        'name', 'photo'
+        'name', 'logo'
     ];
 
     public function items($value='')
     {
     	return $this->hasMany('App\Item');
-    }
-
-    public function subcategories($value='')
-    {
-    	return $this->hasMany('App\Subcategory');
     }
 }
