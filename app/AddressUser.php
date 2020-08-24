@@ -13,4 +13,5 @@ class AddressUser extends Model
     public function user($value='')
     {
     	return $this->hasMany('App\User');
+    }
 }
