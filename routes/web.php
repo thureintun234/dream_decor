@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //Backend
 Route::group(['prefix' => 'admin','middleware'=>['auth','admin']],function(){
-	Route::get('/dashboard', 'BackendController@index');
+	Route::get('/dashboard', 'BackendController@index')->name('dashboard');
 
 	Route::resource('/categories','CategoryController');
 
@@ -35,6 +35,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']],function(){
 
 	Route::resource('/orders','OrderController');
 });
+
+
+Route::get('/','FrontendController@index');
+
 
 
 
