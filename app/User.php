@@ -41,4 +41,19 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isAdmin() {
         return $this->admin;
     }
+
+    public function orders($value='')
+    {
+        return $this->hasMany('App\Order');
+    }
+
+    public function wishlists($value='')
+    {
+        return $this->hasMany('App\Wishlist');
+    }
+
+    public function addressusers($value='')
+    {
+        return $this->hasMany('App\Address');
+    }
 }

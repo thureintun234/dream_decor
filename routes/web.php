@@ -32,14 +32,16 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']],function(){
 	Route::resource('/packages','PackageController');
 
 	Route::resource('/items','ItemController');
+
+	Route::resource('/orders','OrderController');
 });
 
 
 
 //user login
-Route::group(['middleware'=>'auth'], function() {
-	Route::get('/order','OrderController@index');
-});
+// Route::group(['middleware'=>'auth'], function() {
+// 	Route::get('/order','OrderController');
+// });
 
 
 Auth::routes(['verify'=>true]);

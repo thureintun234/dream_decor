@@ -4,17 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Color extends Model
+class Wishlist extends Model
 {
     protected $fillable = [
-        'name', 'photo'
+        'user_id', 'item_id'
     ];
 
-    public function items($value='')
+    public function user($value='')
     {
-    	return $this->belongsToMany('App\Item','color_product')
-    				->withTimestamps();
-
+    	return $this->hasMany('App\User');
     }
 
     public function item($value='')

@@ -9,4 +9,11 @@ class Package extends Model
     protected $fillable = [
         'name', 'photo', 'price'
     ];
+
+    public function items($value='')
+    {
+    	return $this->belongsToMany('App\Item','package_product')
+    				->withTimestamps();
+
+    }
 }

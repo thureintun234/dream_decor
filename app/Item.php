@@ -29,4 +29,9 @@ class Item extends Model
     {
     	return $this->belongsTo('App\Category');
     }
+
+    public function wishlists($value='')
+    {
+        return $this->belongsTo('App\Wishlist');
+    }
 }
