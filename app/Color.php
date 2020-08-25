@@ -13,6 +13,7 @@ class Color extends Model
     public function items($value='')
     {
     	return $this->belongsToMany('App\Item','color_product')
+                    ->withPivot('color_type')
     				->withTimestamps();
 
     }

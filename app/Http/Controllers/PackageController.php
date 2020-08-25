@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Package;
+use App\Item;
 
 class PackageController extends Controller
 {
@@ -25,7 +26,8 @@ class PackageController extends Controller
      */
     public function create()
     {
-        return view('backend.packages.create');
+        $items = Item::all();
+        return view('backend.packages.create',compact('items'));
     }
 
     /**

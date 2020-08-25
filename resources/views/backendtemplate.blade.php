@@ -12,7 +12,9 @@
   <title>SB Admin 2 - Dashboard</title>
 
   {{-- select2 --}}
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+  @yield('style')
+  <script src="{{asset('backend/vendor/jquery/jquery.min.js')}}"></script>
+  
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -20,6 +22,8 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset('backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
 </head>
 
@@ -354,7 +358,6 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{asset('backend/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
   <!-- Core plugin JavaScript-->
