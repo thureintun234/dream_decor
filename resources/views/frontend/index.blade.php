@@ -17,7 +17,7 @@
 				</div>
 				<div class="col-md-6 relphoto">
 					<div class="dover"></div>
-					<img src="{{asset('frontend/images/carousel.jpg')}}" class="img-fluid ">
+					<img src="{{asset('frontend/images/carousel2.jpg')}}" class="img-fluid ">
 					<div class="postext text-center">
 						<h2 class="text-light">Go To Sale Products</h2>
 						<a href="#" class="btn btn-danger btn-lg">Sale</a>
