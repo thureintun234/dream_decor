@@ -15,4 +15,13 @@ class FrontendController extends Controller
     	$items = Item::OrderBy('id','desc')->take(6)->get();
     	return view('frontend.index',compact('categories','items'));
     }
+    public function checkout($value='')
+    {
+    	$categories = Category::all();
+    	return view('frontend.checkout', compact('categories'));
+    }
+    public function profile($value='')
+    {
+   		return view('frontend.profile');
+    }
 }

@@ -37,8 +37,11 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']],function(){
 });
 
 
-Route::get('/','FrontendController@index');
+Route::get('/','FrontendController@index')->name('dreamdecor');
 
+Route::get('checkout','FrontendController@checkout')->name('checkout');
+
+Route::get('profile','FrontendController@profile')->name('profile');
 
 
 

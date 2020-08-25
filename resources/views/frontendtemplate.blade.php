@@ -44,22 +44,40 @@
 	<header class="main_header" id="dreamdecor">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light py-4 mr-4">
 			<div class="container-fluid">
-				<a class="navbar-brand img-thumbnail border-0 ml-4" href="#">
+				<a class="navbar-brand img-thumbnail border-0 ml-4" href="{{route('dreamdecor')}}">
 					<img src="{{asset('frontend/images/logo.png')}}" class="img-fluid" width="80">
 					<p class="text-monospace">Dream Decor</p>
 				</a>
 				
 
 					<form class="form-inline my-2 my-lg-0 ml-auto">
-						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-						<ul class="navbar-nav">
-							<li class="nav-item">
-								<a class="nav-link" href="#">Login</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Register</a>
-							</li>
-						</ul>
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="navbar-nav">
+									<li class="nav-item">
+										<a class="nav-link" href="{{route('login')}}">Login</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="{{route('register')}}">Register</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-6">
+										<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+									</div>
+									<div class="col-md-2">
+										<a href="{{route('checkout')}}"><i class="fas fa-shopping-cart fa-2x"></i></a>
+									</div>
+									<div class="col-md-2">
+										<a href=""><i class="far fa-2x fa-heart "></i></a>
+									</div>
+								</div>
+
+							</div>
+							
+						</div>
 					</form>
 			</div>
 		</nav>
