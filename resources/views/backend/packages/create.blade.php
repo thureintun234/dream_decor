@@ -1,5 +1,10 @@
 @extends('backendtemplate')
 
+@section('style')
+	
+@endsection
+
+
 @section('content')
 	<div class="container-fluid">
 		<h2 class="d-inline-block">Package Create (Form)</h2>
@@ -19,8 +24,24 @@
 					<input type="number" name="price" placeholder="Price" class="form-control {{ $errors->has('price') ? 'border border-danger' : '' }}">
 					<span style="color:red;">{{$errors->first('price')}}</span>
 				</div>
+				<div class="form-group">
+					<select class="multipleselect form-control"  name="items[]" multiple="multiple">
+						@foreach($items as $item)
+						<option value="{{$item->id}}">{{$item->name}}</option>
+						@endforeach
+					</select>
+				</div>
 				<button type="submit" class="btn btn-primary">Create</button>
 			</div>
 		</form>
 	</div>
+@endsection
+
+
+@section('script')
+<script type="text/javascript">
+		$(document).ready(function() {
+			$('.multipleselect').select2();
+		});
+	</script>
 @endsection

@@ -12,22 +12,29 @@ class Item extends Model
 
      public function brand($value='')
     {
-    	return $this->belongsTo('App\Brand');
+        return $this->belongsTo('App\Brand');
     }
 
     public function subcategory($value='')
     {
-    	return $this->belongsTo('App\Subcategory');
+        return $this->belongsTo('App\Subcategory');
     }
 
-    public function color($value='')
+    public function packages($value='')
     {
-    	return $this->belongsTo('App\Color');
+        return $this->belongsToMany('App\Package','package_product')
+                    ->withTimestamps();
+    }
+
+    public function colors($value='')
+    {
+        return $this->belongsToMany('App\Color','color_product')
+                    ->withTimestamps();
     }
 
     public function category($value='')
     {
-    	return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Category');
     }
 
     public function wishlists($value='')

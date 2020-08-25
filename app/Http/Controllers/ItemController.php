@@ -45,6 +45,8 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+       
+
         $request->validate([
             'codeno' => 'required|min:4',
             'name'  => 'required',
@@ -56,7 +58,7 @@ class ItemController extends Controller
             'category' => 'required',
             'brand' => 'required',
             'subcategory' => 'required',
-            'color' => 'required'
+            'colors' => 'required'
         ]);
 
         //image file upload 1
@@ -84,9 +86,16 @@ class ItemController extends Controller
         $item->category_id = $request->category;
         $item->brand_id = $request->brand;
         $item->subcategory_id = $request->subcategory;
-        $item->color_id = $request->color;
+        $item->color_id = 1;
 
         $item->save();
+
+         $colors = $request->colors;
+        for ($i=0; $i < count($colors); $i++) { 
+            // $color_product = Item::find($item_id);
+            $item->colors()->attach($colors[$i]);
+        }
+
 
         return redirect()->route('items.index');
     }
@@ -186,7 +195,7 @@ class ItemController extends Controller
         $item->category_id = $request->category;
         $item->brand_id = $request->brand;
         $item->subcategory_id = $request->subcategory;
-        $item->color_id = $request->color;
+        $item->color_id = 1;
 
         $item->save();
 

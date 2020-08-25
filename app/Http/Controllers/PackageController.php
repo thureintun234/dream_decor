@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Package;
+use App\Item;
 
 class PackageController extends Controller
 {
@@ -25,7 +26,8 @@ class PackageController extends Controller
      */
     public function create()
     {
-        return view('backend.packages.create');
+        $items = Item::all();
+        return view('backend.packages.create',compact('items'));
     }
 
     /**
@@ -54,6 +56,12 @@ class PackageController extends Controller
         $package->price = $request->price;
 
         $package->save();
+
+         $items = $request->items;
+        for ($i=0; $i < count($items); $i++) { 
+            // $color_product = Item::find($item_id);
+            $package->items()->attach($items[$i]);
+        }
 
         //redirect
         return redirect()->route('packages.index');
