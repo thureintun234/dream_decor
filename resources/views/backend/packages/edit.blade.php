@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container-fluid">
-		<h2 class="d-inline-block">Category Create (Form)</h2>
+		<h2 class="d-inline-block">Category Update (Form)</h2>
 		<a href="{{route('packages.index')}}" class="btn btn-success float-right">Back Category</a>
 		<form class="row py-3" enctype="multipart/form-data" method="POST" action="{{route('packages.update',$package->id)}}">
 			@csrf
@@ -22,8 +22,26 @@
 					<input type="number" name="price" placeholder="Price" class="form-control {{ $errors->has('price') ? 'border border-danger' : '' }}" value="{{$package->price}}">
 					<span style="color:red;">{{$errors->first('price')}}</span>
 				</div>
+				<div class="form-group">
+					<select class="multipleselect form-control"  name="items[]" multiple="multiple">
+						@foreach($items as $item)
+						<option value="{{$item->id}}"
+								@if($item->id == $package->item_id){{'selected'}}
+								@endif
+							>{{$item->name}}</option>
+						@endforeach
+					</select>
+				</div>
 				<button type="submit" class="btn btn-primary">Update</button>
 			</div>
 		</form>
 	</div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+		$(document).ready(function() {
+			$('.multipleselect').select2();
+		});
+	</script>
 @endsection

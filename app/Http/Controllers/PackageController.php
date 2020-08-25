@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Package;
 use App\Item;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
+
 
 class PackageController extends Controller
 {
@@ -86,8 +89,9 @@ class PackageController extends Controller
      */
     public function edit($id)
     {
+        $items = Item::all();
         $package = Package::find($id);
-        return view('backend.packages.edit',compact('package'));
+        return view('backend.packages.edit',compact('package','items'));
     }
 
     /**
@@ -99,6 +103,13 @@ class PackageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // $package = Package::find($id);
+        // $item = $package->items()->where('package_id', $id)->get();
+        // $package->items()->$detach();
+        // // $item->delete();
+        // dd($item);
+
+
         $request->validate([
             'name' => 'required',
             'photo' => 'required',
@@ -122,7 +133,17 @@ class PackageController extends Controller
         $package->photo = $myfile;
         $package->price = $request->price;
 
+        //pivot data from package_product
+        // $item = $package->items()->where('package_id', $id)->get();
+        // $item->delete();
+
         $package->save();
+
+        // $items = $request->items;
+        // for ($i=0; $i < count($items); $i++) { 
+        //     // $color_product = Item::find($item_id);
+        //     $package->items()->attach($items[$i]);
+        // }
 
         //redirect
         return redirect()->route('packages.index');
