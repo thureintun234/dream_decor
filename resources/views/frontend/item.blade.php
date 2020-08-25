@@ -11,7 +11,8 @@
 		@foreach($items as $item)
 		<div class="col-md-3 my-3 mx-4">
 			<div class="card" style="width: 18rem;">
-				<img src="{{$item->photo1}}" class="card-img-top" width="200" height="200">
+				<a href="{{route('itemdetail',$item->id)}}">
+				<img src="{{$item->photo1}}" class="card-img-top" width="200" height="200"></a>
 				<div class="card-body text-center">
 					<h5 class="card-title">{{$item->name}}</h5>
 					<p class="card-text">{{$item->description}}</p>

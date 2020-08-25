@@ -48,6 +48,7 @@ Route::get('item','FrontendController@item')->name('item');
 Route::get('package','FrontendController@package')->name('package');
 
 Route::get('packagedetail/{id}', 'FrontendController@packagedetail')->name('packagedetail');
+Route::get('itemdetail/{id}', 'FrontendController@itemdetail')->name('itemdetail');
 
 
 
