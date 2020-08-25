@@ -239,3 +239,10 @@ div.dover{
     color: #000;
 }
 /*end popup*/
+
+
+/*package*/
+  div.packagebox:hover{
+    box-shadow:6px 6px 4px gray;
+  }
+/*end package*/

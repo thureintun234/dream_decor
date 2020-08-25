@@ -43,6 +43,14 @@ Route::get('checkout','FrontendController@checkout')->name('checkout');
 
 Route::get('profile','FrontendController@profile')->name('profile');
 
+Route::get('item','FrontendController@item')->name('item');
+
+Route::get('package','FrontendController@package')->name('package');
+
+Route::get('packagedetail/{id}', 'FrontendController@packagedetail')->name('packagedetail');
+
+
+
 
 
 //user login

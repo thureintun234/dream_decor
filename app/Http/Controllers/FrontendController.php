@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 use App\Item;
 use App\Category;
 use App\Subcategory;
+use App\Package;
 
 class FrontendController extends Controller
 {
+
     public function index($value='')
     {
+        $packages = Package::take(8)->get();
     	$categories = Category::take(8)->get();
     	$items = Item::OrderBy('id','desc')->take(6)->get();
-    	return view('frontend.index',compact('categories','items'));
+    	return view('frontend.index',compact( 'packages', 'categories','items'));
     }
     public function checkout($value='')
     {
@@ -22,6 +25,28 @@ class FrontendController extends Controller
     }
     public function profile($value='')
     {
-   		return view('frontend.profile');
+        $categories = Category::take(8)->get();
+   		return view('frontend.profile',compact('categories'));
+    }
+    public function item($value='')
+    {
+        $items = Item::all();
+        $categories = Category::all();
+        return view('frontend.item',compact('categories','items'));
+    }
+
+    public function package($value='')
+    {
+        $packages = Package::all();
+        $categories = Category::all();
+        return view('frontend.package',compact('categories','packages'));
+    }
+
+    public function packagedetail($id)
+    {
+        $items = Item::find($id);
+        $packages = Package::find($id);
+        $categories = Category::all();
+         return view('frontend.packagedetail',compact('items', 'packages','categories'));
     }
 }
