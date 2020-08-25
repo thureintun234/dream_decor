@@ -75,7 +75,7 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<select class="form-control" name="color" multiple="multiple">
+					<select class="form-control multipleselect" name="colors[]" multiple="multiple">
 						<optgroup label="Choose Color">
 							@foreach($colors as $color)
 							<option value="{{$color->id}}"
@@ -91,4 +91,12 @@
 			</div>
 		</form>
 	</div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+		$(document).ready(function() {
+			$('.multipleselect').select2();
+		});
+	</script>
 @endsection

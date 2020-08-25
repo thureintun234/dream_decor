@@ -57,6 +57,12 @@ class PackageController extends Controller
 
         $package->save();
 
+         $items = $request->items;
+        for ($i=0; $i < count($items); $i++) { 
+            // $color_product = Item::find($item_id);
+            $package->items()->attach($items[$i]);
+        }
+
         //redirect
         return redirect()->route('packages.index');
     }

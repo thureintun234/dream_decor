@@ -64,7 +64,7 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<select class="form-control multipleselect" name="color" multiple="multiple">
+					<select class="form-control multipleselect" name="colors[]" multiple="multiple">
 						<optgroup label="Choose Color">
 							@foreach($colors as $color)
 							<option value="{{$color->id}}">{{$color->name}}</option>

@@ -13,7 +13,6 @@ class Package extends Model
     public function items($value='')
     {
     	return $this->belongsToMany('App\Item','package_product')
-    				->withPivot('item_typs')
     				->withTimestamps();
 
     }

@@ -25,7 +25,7 @@
 					<span style="color:red;">{{$errors->first('price')}}</span>
 				</div>
 				<div class="form-group">
-					<select class="multipleselect form-control"  name="itemselect" multiple="multiple">
+					<select class="multipleselect form-control"  name="items[]" multiple="multiple">
 						@foreach($items as $item)
 						<option value="{{$item->id}}">{{$item->name}}</option>
 						@endforeach

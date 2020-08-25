@@ -23,14 +23,12 @@ class Item extends Model
     public function packages($value='')
     {
         return $this->belongsToMany('App\Package','package_product')
-                    ->withPivot('item_typs')
                     ->withTimestamps();
     }
 
     public function colors($value='')
     {
         return $this->belongsToMany('App\Color','color_product')
-                    ->withPivot('color_type')
                     ->withTimestamps();
     }
 
