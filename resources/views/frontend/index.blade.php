@@ -20,7 +20,7 @@
 					<img src="{{asset('frontend/images/carousel2.jpg')}}" class="img-fluid ">
 					<div class="postext text-center">
 						<h2 class="text-light">Go To Sale Products</h2>
-						<a href="#" class="btn btn-danger btn-lg">Sale</a>
+						<a href="{{route('sale')}}" class="btn btn-danger btn-lg">Sale</a>
 					</div>
 				</div>
 			</div>
@@ -114,7 +114,7 @@
     		</div>
     		<div class="col-lg-4 col-md-4 col-sm-4">
     			<div class="btm-right1">
-    				<a href="bestseller.html">
+    				<a href="{{'branditem'}}">
     					<img src="{{asset('frontend/images/abyamara.jpg')}}" alt="" class="img-fluid">
     					<div class="captn1">
     						<h5>Brands</h5>

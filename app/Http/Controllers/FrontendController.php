@@ -7,6 +7,7 @@ use App\Item;
 use App\Category;
 use App\Subcategory;
 use App\Package;
+use App\Brand;
 
 class FrontendController extends Controller
 {
@@ -54,5 +55,21 @@ class FrontendController extends Controller
         $categories = Category::all();
         $items = Item::find($id);
         return view('frontend.itemdetail', compact('categories', 'items'));
+    }
+    public function sale($id,$value='')
+    {
+
+        // $items = Item::find($id);
+        $categories = Category::all();
+        $items = Item::where('discount','=', 0)->get();
+        // dd($items);
+        
+        return view('frontend.sale',compact('items','categories'));
+    }
+    public function branditem($value='')
+    {
+        $brands = Brand::all();
+        $categories = Category::all();
+        return view('frontend.brand',compact('brands','categories'));
     }
 }

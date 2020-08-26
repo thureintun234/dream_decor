@@ -95,19 +95,55 @@
 			<div class="container">
 				<div class="footer-top">
 					<div class="row">
+						
+						<div class="col-md-3 amet-sed">
+							<a class="navbar-brand img-thumbnail border-0 ml-4" href="{{route('dreamdecor')}}">
+								<img src="{{asset('frontend/images/logo.png')}}" class="img-fluid" width="80">
+								<p class="text-monospace">Dream Decor</p>
+							</a>
+						</div>
+
+						<div class="col-md-3 amet-sed">
+							<h4>Contact</h4>
+							<div class="info">
+								<div class="address">
+									<li><i class="icofont-google-map"></i>
+									<h5>Location:</h5>
+									<p>corner of 59 & 39,<br> Maharaung Myay, Mandalay</p></li>
+								</div>
+
+								<div class="email">
+									
+									<li><i class="icofont-envelope"></i><a class="email"href="#"> dreamdecor@gmial.com</a></li>
+									
+								</div>
+
+								<div class="phone">
+									<li><i class="icofont-phone"></i>
+									<h5>Call:</h5>
+									<p>+959 977295877</p></li>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="col-md-3 amet-sed">
+							<h4>Aubout</h4>
+						</div>
 						<div class="col-md-3 amet-sed ">
 							<h4>Follow Us</h4>
 							<ul class="social-icons2 wow slideInDown" data-wow-duration="1s" data-wow-delay=".3s">
 								<div class="row">
 									<div class="col-lg-4 col-md-4 col-sm-4">
-										<li><a href="#" class="tw"></a></li>
+										<li><a href="https://twitter.com" class="tw"></a></li>
 									</div>
 									<div class="col-lg-4 col-md-4 col-sm-4">
-										<li><a href="#" class="fb"> </a></li>
+										<li><a href="https://www.facebook.com" rel="me" title="Facebook" target="_blank" class="fb"> </a></li>
 									</div>
 									<div class="col-lg-4 col-md-4 col-sm-4">
-										<li><a href="#" class="in"></a></li>
+										<li><a href="" class="in"></a></li>
 									</div>
+									
 									<div class="clearfix"></div>
 								</div>
 							</ul>

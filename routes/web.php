@@ -50,6 +50,10 @@ Route::get('package','FrontendController@package')->name('package');
 Route::get('packagedetail/{id}', 'FrontendController@packagedetail')->name('packagedetail');
 Route::get('itemdetail/{id}', 'FrontendController@itemdetail')->name('itemdetail');
 
+Route::get('sale','FrontendController@sale')->name('sale');
+
+Route::get('branditem','FrontendController@branditem')->name('branditem');
+
 
 
 

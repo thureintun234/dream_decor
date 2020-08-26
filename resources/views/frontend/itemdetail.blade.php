@@ -30,8 +30,14 @@
 										<td class="product_name">Product Name:: <span>{{$items->name}}</span></td>
 									</tr>
 									<tr>
-										<td class="product_price">Price:: <span>{{$items->price}}</span></td>
+										@if ($items->price)
+										<span>{{ (($items->discount/$items->price) * 100) }}% <br />OFF</span>
+										@endif
+										<td class="product_price">Price:: <span><del>{{$items->price}}MMK</del></span>
+											{{ $items->discount}}MMK
+										</td>
 									</tr>
+
 									<tr>
 										<td class="product_brand">Brand:: <span>{{$items->brand_id}}</span></td>
 									</tr>
