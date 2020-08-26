@@ -49,6 +49,7 @@ class FrontendController extends Controller
         $categories = Category::all();
          return view('frontend.packagedetail',compact('items', 'packages','categories'));
     }
+<<<<<<< HEAD
 
     public function getItems(Request $request)
     {
@@ -60,5 +61,12 @@ class FrontendController extends Controller
         }
         
         return $items;
+=======
+    public function itemdetail($id,$value='')
+    {
+        $categories = Category::all();
+        $items = Item::find($id);
+        return view('frontend.itemdetail', compact('categories', 'items'));
+>>>>>>> 3731fea8005d00ad1718e80c0b24a73713b0d754
     }
 }
