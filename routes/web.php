@@ -72,3 +72,9 @@ Route::get('users/export', 'UsersController@export');
 
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+
+
+
+
+Route::post('getitems','FrontendController@getItems')->name('getitems');
