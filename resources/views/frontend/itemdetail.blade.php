@@ -6,7 +6,7 @@
 			<div class="container-fluid">
 				<div class="wrapper row">
 					<div class="col-md-6">
-						<img src="{{asset($items->photo)}}" class="img-fluid">
+						<img src="{{asset($items->photo1)}}" class="img-fluid">
 					</div>
 					<div class="col-md-6">
 						<div class="rating">
@@ -36,16 +36,17 @@
 										<td class="product_brand">Brand:: <span>{{$items->brand_id}}</span></td>
 									</tr>
 									<tr>
-										{{-- @foreach($items->colors as $color) --}}
-										<td class="product_color">Color:: <span>{{$items->colors}}</span></td>
-										{{-- @endforeach --}}
+										<td class="font-weight-bold">Available Colors </td>
+										@foreach($items->colors as $color)
+										<td><img src="{{asset($color->photo)}}" width="50" height="50"></td>
+										@endforeach
 									</tr>
-
+									
 								</tbody>
 							</table>
 						</div>
-						<a href="#" class="add_to_cart btn btn-secondary mx-3 my-3">Add To Cart</a>
-						<a href="#" class="wishlist mx-2"><i class="far fa-heart fa-2x"></i></a>
+						{{-- <a href="#" class="cart btn btn-secondary mx-3 my-3">Add To Cart</a>
+						<a href="#" class="bg-info"><i class="far fa-heart fa-2x"></i></a> --}}
 					</div>
 
 				</div>

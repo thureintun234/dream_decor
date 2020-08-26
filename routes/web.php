@@ -48,7 +48,18 @@ Route::get('item','FrontendController@item')->name('item');
 Route::get('package','FrontendController@package')->name('package');
 
 Route::get('packagedetail/{id}', 'FrontendController@packagedetail')->name('packagedetail');
+
 Route::get('itemdetail/{id}', 'FrontendController@itemdetail')->name('itemdetail');
+
+//search
+Route::post('search','FrontendController@search')->name('searchkey');
+
+//wishlist
+// Route::get('addToWishList','FrontendController@wishlist')->name('addToWishList');
+
+// Route::get('/WishList','FrontendController@View_wishList');
+
+// Route::get('/removeWishList/{id}','FrontendController@removeWishList');
 
 
 
@@ -64,7 +75,7 @@ Auth::routes(['verify'=>true]);
 
 
 //Excel
-Route::get('users/export', 'UsersController@export');
+Route::get('users/export', 'UsersController@export')->name('excel');
 
 
 
@@ -79,3 +90,5 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 
 
 Route::post('getitems','FrontendController@getItems')->name('getitems');
+
+Route::post('getpackages','FrontendController@getpackages')->name('getpackages');

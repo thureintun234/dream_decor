@@ -7,6 +7,8 @@ use App\Item;
 use App\Category;
 use App\Subcategory;
 use App\Package;
+use App\Wishlist;
+use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
 {
@@ -49,7 +51,7 @@ class FrontendController extends Controller
         $categories = Category::all();
          return view('frontend.packagedetail',compact('items', 'packages','categories'));
     }
-<<<<<<< HEAD
+
 
     public function getItems(Request $request)
     {
@@ -61,12 +63,64 @@ class FrontendController extends Controller
         }
         
         return $items;
-=======
+    }
+
+    public function getpackages(Request $request)
+    {
+        $pid = $request->pid;
+        if ($pid==0) {
+            $packages = Package::all();
+        }
+
+        return $packages;
+    }
+
     public function itemdetail($id,$value='')
     {
         $categories = Category::all();
         $items = Item::find($id);
         return view('frontend.itemdetail', compact('categories', 'items'));
->>>>>>> 3731fea8005d00ad1718e80c0b24a73713b0d754
     }
+
+    public function search(Request $request)
+    {
+        // dd($request);
+        $search = $request->site_search;
+        $categories = Category::all();
+
+        if ($search == '') {
+            return view('frontend.item',compact('categories'));
+        }else{
+            $items = DB::table('items')->where('name','LIKE','%'.$search.'%')->paginate(2);
+            // dd($items);
+            return view('frontend.item', ['msg'=>'Results:'.$search ],compact('items','categories'));
+
+        }
+    }
+
+
+    // public function wishlist(Request $request)
+    // {
+    //     $wishlist = new Wishlist;
+    //     $wishlist->user_id = Auth::user()->id;
+    //     $wishlist->item_id=$request->item_id;
+
+    //     $wishlist->save();
+
+    //     $Items = DB::table('items')->where('id', $request->item_id)->get();
+
+    //     return view('frontend.itemdetail',compact('Items'));
+    // }
+
+    // public function View_wishList() {
+    //     $Items = DB::table('wishlist')->leftJoin('items','wishlist.item_id', '=', 'items.id')->get();
+    //     return view('frontend.wishlist',compact('Items'));
+    // }
+
+    // public function removeWishList($id)
+    // {
+    //     DB::table('wishlist')->where('item_id', '=', $id)->delete();
+
+    //     return back()->with('msg', 'Item Removed from Wishlist');
+    // }
 }

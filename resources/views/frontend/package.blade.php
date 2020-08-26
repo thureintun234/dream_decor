@@ -7,23 +7,69 @@
 @section('content')
 <div class="container my-5">
 	<h1 class="text-center py-3">Packages for You</h1>
-	<div class="row">
-		@foreach($packages as $package)
-		<div class="col-md-4 my-3">
-			<a href="{{route('packagedetail',$package->id)}}" class="text-decoration-none">
+	<div class="row" id="myItems">
+		
+	</div>
+</div>
+@endsection
+
+
+@section('script')
+	<script type="text/javascript" src="{{asset('frontend/js/script.js')}}"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+
+			showItems(0);
+
+			function showItems(id)	{
+				$.post("{{route('getpackages')}}", {pid:id} ,function(res){
+				console.log(res);
+
+				var html = '';
+				var discount = 0;
+				$.each(res,function(i,v){
+					var url = '/packagedetail/'+v.id;
+					html +=`
+					<div class="col-md-4 my-3">
+			
 				<div class="card packagebox" style="width: 18rem;">
-					<img src="{{$package->photo}}" class="card-img-top" width="200" height="200">
+				<a href="${url}" class="text-decoration-none">
+					<img src="${v.photo}" class="card-img-top" width="200" height="200">
+					</a>
 					<div class="card-body text-center">
-						<h5 class="card-title">{{$package->name}}</h5>
-						<p class="card-text">{{$package->price}}</p>
+						<p class="card-text">${v.price}</p>
 					</div>
 					<div class="card-footer text-center">
 						<small class="text-muted font-weight-bold">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+						<button class="btn btn-info cart" data-cid="${v.id}" data-cname="${v.name}" data-cphoto="${v.photo}" data-cprice="${v.price}" data-cdiscount="0">Add To Cart</button>
 					</div>
 				</div>
-			</a>
+			
 		</div>
-		@endforeach
-	</div>
-</div>
+					`	
+				});
+
+				$('#myItems').html(html);
+
+			});
+			}
+
+			$('.filter').click(function(){
+				var id = $(this).data('id');
+				showItems(id);
+
+				var name=$(this).data('name');
+
+				$('.filterhead').text("Filter By: "+name);
+			});
+			
+		});
+	</script>
+
 @endsection
