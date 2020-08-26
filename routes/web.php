@@ -48,11 +48,24 @@ Route::get('item','FrontendController@item')->name('item');
 Route::get('package','FrontendController@package')->name('package');
 
 Route::get('packagedetail/{id}', 'FrontendController@packagedetail')->name('packagedetail');
+
 Route::get('itemdetail/{id}', 'FrontendController@itemdetail')->name('itemdetail');
 
+<<<<<<< HEAD
 Route::get('sale','FrontendController@sale')->name('sale');
 
 Route::get('branditem','FrontendController@branditem')->name('branditem');
+=======
+//search
+Route::post('search','FrontendController@search')->name('searchkey');
+
+//wishlist
+// Route::get('addToWishList','FrontendController@wishlist')->name('addToWishList');
+
+// Route::get('/WishList','FrontendController@View_wishList');
+
+// Route::get('/removeWishList/{id}','FrontendController@removeWishList');
+>>>>>>> 1f984b72bc257242e3be253211c95b4945f850c8
 
 
 
@@ -68,7 +81,7 @@ Auth::routes(['verify'=>true]);
 
 
 //Excel
-Route::get('users/export', 'UsersController@export');
+Route::get('users/export', 'UsersController@export')->name('excel');
 
 
 
@@ -77,3 +90,11 @@ Route::get('users/export', 'UsersController@export');
 
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+
+
+
+
+Route::post('getitems','FrontendController@getItems')->name('getitems');
+
+Route::post('getpackages','FrontendController@getpackages')->name('getpackages');

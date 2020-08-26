@@ -3,6 +3,8 @@
 <head>
 	<title>Dream Decor | Home Decorationa And Accessories</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<script type="text/javascript" src="{{asset('frontend/bootstrap/js/jquery.min.js')}}"></script>
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/bootstrap/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/bootstrap/css/bootstrap.min.css')}}">
@@ -47,7 +49,6 @@
 				</a>
 				
 
-					<form class="form-inline my-2 my-lg-0 ml-auto">
 						<div class="row">
 							<div class="col-md-12">
 								<ul class="navbar-nav">
@@ -57,28 +58,37 @@
 									<li class="nav-item">
 										<a class="nav-link" href="{{route('register')}}">Register</a>
 									</li>
-									{{-- <li class="nav-item">
+									<li class="nav-item">
 										<a class="nav-link" href="{{route('profile')}}">{{ Auth::user()->name }}</a>
-									</li> --}}
+									</li>
 								</ul>
 							</div>
-							<div class="col-md-12">
+							<div class="col-md-12 my-2">
 								<div class="row">
-									<div class="col-md-6">
-										<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+									<ul class="navbar-nav">
+										<li class="nav-item">
+											<form method="POST" action="{{route('searchkey')}}" role="search">
+												@csrf
+												
+											<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="site_search">
+											
+											<button type="submit" class="btn btn-outline-success" value="Search">Search
+											</button>	
+											</form>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#"><i class="fas fa-heart fa-2x"></i></a>
+										</li>
+										<li class="nav-item cat_img">
+											<a class="nav-link" href="{{route('checkout')}}">
+												<i class="fas fa-shopping-cart fa-2x"><span id="count"></i>
+												</a>
+											</li>
+										</ul>
 									</div>
-									<div class="col-md-2">
-										<a href="{{route('checkout')}}"><i class="fas fa-shopping-cart fa-2x"></i></a>
-									</div>
-									<div class="col-md-2">
-										<a href=""><i class="far fa-2x fa-heart "></i></a>
-									</div>
-								</div>
 
-							</div>
-							
+								</div>
 						</div>
-					</form>
 			</div>
 		</nav>
 		@yield('nav')
@@ -154,22 +164,25 @@
 			</div>
 		</div>
 		<!--start-smooth-scrolling-->
-		<script type="text/javascript">
+		{{-- <script type="text/javascript">
 			$(document).ready(function() {				
 
 		 		$().UItoTop({ easingType: 'easeOutQuart' });
 
 			});
-		</script>
+		</script> --}}
 		<!--end-start-smooth-scrolling-->
 
 		<a href="#dreamdecor" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 
-<script type="text/javascript" src="{{asset('frontend/bootstrap/js/jquery.min.js')}}"></script>
+
 <script type="text/javascript" src="{{asset('frontend/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('frontend/slick-master/slick/slick.js')}}"></script>
+@yield('script')
 <script>
+
+
 	$(document).ready(function(){
 		$('.slick_slider').slick({
 			slidesToShow: 4,

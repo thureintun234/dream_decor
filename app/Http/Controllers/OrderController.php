@@ -38,7 +38,26 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cartArr = json_decode($request->shop_data); //array
+
+        $total = 0;
+        foreach ($cartArr as $row) {
+            $total += ($row->price * $row->qty);
+        }
+
+        $order = new Order;
+        $order->voucherno = uniqid();
+        $order->orderdate = date('Y-m-d');
+        $order->user_id = Auth::id(); //auth id
+        $order->note = $request->notes;
+        $order->total = $total;
+        $order->save(); //only saved into order table
+
+        //save into order_detail (pivot table relationship)
+        foreach ($cartArr as $row) {
+            $order->items()->attach($row->id,['qty'=>$row->qty]);
+        }
+        return 'Successful!';
     }
 
     /**
@@ -49,7 +68,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::find($id);
+         return view('backend.orders.show',compact('order',));
     }
 
     /**
