@@ -10,14 +10,16 @@ class Order extends Model
         'voucherno', 'orderdate', 'status', 'note', 'total', 'user_id'
     ];
 
-    public function items($value='')
-    {
-    	return $this->belongsToMany('App\Item','order_detail')
-    				->withPivot('qty')
-    				->withTimestamps();
+    // public function items($value='')
+    // {
+    // 	return $this->belongsToMany('App\Item','order_detail')
+    //                 ->withPivot('package_id')
+    // 				->withPivot('qty')
+    // 				->withTimestamps();
 
-    }
+    // }
 
+    
     public function user($value='')
     {
     	return $this->belongsTo('App\User');

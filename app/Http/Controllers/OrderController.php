@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Order;
 use App\User;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -42,8 +43,16 @@ class OrderController extends Controller
 
         $total = 0;
         foreach ($cartArr as $row) {
-            $total += ($row->price * $row->qty);
+            if ($row->cid) {
+                $total += ($row->cprice * $row->qty);
+            }else{
+                $total += ($row->pprice * $row->qty);
+            }
+            
         }
+        // dd($total);
+        //dd($cartArr)
+
 
         $order = new Order;
         $order->voucherno = uniqid();
@@ -54,9 +63,9 @@ class OrderController extends Controller
         $order->save(); //only saved into order table
 
         //save into order_detail (pivot table relationship)
-        foreach ($cartArr as $row) {
-            $order->items()->attach($row->id,['qty'=>$row->qty]);
-        }
+
+
+
         return 'Successful!';
     }
 

@@ -6,7 +6,8 @@
 
 @section('content')
 	<div class="container my-5">
-		<h1 class="text-center py-3">Package Detail</h1>
+		<h1 class="text-center py-3 d-inline-block">Package Detail</h1>
+		<a href="{{route('package')}}" class="btn btn-primary float-right">Back To Package</a>
 		<div class="row">
 			<div class="col-md-4">
 				<img src="{{asset($packages->photo)}}" width="300" height="300">

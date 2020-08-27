@@ -18,33 +18,23 @@
 					<img src="{{$item->photo1}}" class="card-img-top" width="200" height="200"></a>
 				<div class="card-body text-center">
 					<h5 class="card-title">{{$item->name}}</h5>
-					<p>Price:: <span><del>{{$item->price}}MMK</del></span>
-						{{$item->discount}}MMK
-					</p>
+					@if($item->discount)
+					<p>{{$item->discount}} MMK</p>
+					<del>{{$item->price}} MMK</del>
+					@else
+					<p>{{$item->price}} MMK</p>
+					@endif
 					<p class="card-text">{{$item->description}}</p>
 					<small class="text-muted font-weight-bold">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
 				</div>
-				<div class="card-footer">
-					<a href="#" class="btn btn-secondary mx-3">Add To Cart</a>
+				<div class="card-footer text-center">
+					<button class="btn btn-info cart" data-cid="{{$item->id}}" data-cname="{{$item->name}}" data-cphoto="{{$item->photo1}}" data-cprice="{{$item->price}}" data-cdiscount="{{$item->discount}}">Add To Cart</button>
 					{{-- <a href="#" class="btn btn-secondary">View Cart</a> --}}
 				</div>
 			</div>
 		</div>
 		@endforeach
-					<div class="card" style="width: 18rem;">
-					<a href="{{route('itemdetail',$item->id)}}">
-					<img src="{{asset($item->photo1)}}" class="card-img-top" width="200" height="200"></a>
-					<div class="card-body text-center">
-					<h5 class="card-title">{{$item->name}}</h5>
-					<p class="card-text">{{$item->price}}</p>
-					<small class="text-muted font-weight-bold">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-					</div>
-					<div class="card-footer text-center">
-					<button class="btn btn-info cart" data-cid="{{$item->id}}" data-cname="{{$item->name}}" data-cphoto="{{$item->photo1}}" data-cprice="{{$item->price}}" data-cdiscount="{{$item->discount}}">Add To Cart</button>
-					</div>
-					</div>
-					</div>
-		@endforeach	
+					
 
 	</div>
 </div>

@@ -31,27 +31,28 @@ $(document).ready(function(){
 	// cart status for index page
 	$('#myItems').on('click','.cart',function(){
 
-		var item_qty=parseInt($('#qty').val());
+		var pid = $(this).data('pid');
 		var cid = $(this).data('cid');
-		var cname = $(this).data('cname');
-		var cphoto = $(this).data('cphoto');
-		var cprice = $(this).data('cprice');
-		var cdiscount = $(this).data('cdiscount');
-
-
-		// alert(cid);
+		if (cid!=null) {
+			// alert('cid');
+			var item_qty=parseInt($('#qty').val());
+			var cid = $(this).data('cid');
+			var cname = $(this).data('cname');
+			var cphoto = $(this).data('cphoto');
+			var cprice = $(this).data('cprice');
+			var cdiscount = $(this).data('cdiscount');
 
 		var qty=1;
 		if (item_qty) {
-				qty+=item_qty;
-				}
+			qty+=item_qty;
+		}
 
 		var product_item={
-			id:cid,
-			name:cname,
-			photo:cphoto,
-			price:cprice,
-			discount:cdiscount,
+			cid:cid,
+			cname:cname,
+			cphoto:cphoto,
+			cprice:cprice,
+			cdiscount:cdiscount,
 			qty:qty
 		};
 
@@ -82,6 +83,64 @@ $(document).ready(function(){
 		localStorage.setItem('online_shop',productData);
 		count();
 
+
+
+
+	}else{
+			
+			var item_qty=parseInt($('#qty').val());
+			var pid = $(this).data('pid');
+			var pname = $(this).data('pname');
+			var pphoto = $(this).data('pphoto');
+			var pprice = $(this).data('pprice');
+			var pdiscount = $(this).data('pdiscount');
+
+		var qty=1;
+		if (item_qty) {
+			qty+=item_qty;
+		}
+
+		var product_package={
+			pid:pid,
+			pname:pname,
+			pphoto:pphoto,
+			pprice:pprice,
+			pdiscount:pdiscount,
+			qty:qty
+		};
+
+		var productString = localStorage.getItem('online_shop');
+		var productArray;
+		if(productString == null){
+			productArray=Array();
+		}else{
+			productArray=JSON.parse(productString);
+		}
+
+		var status=false;
+		$.each(productArray,function(i,v){
+			if(pid==v.id){
+				status=true;
+				if (!item_qty) {
+					v.qty++;
+				}else{
+					v.qty+=item_qty;
+				}
+			}
+		});
+		if(status==false){
+			productArray.push(product_package);
+		}
+
+		var productData = JSON.stringify(productArray);
+		localStorage.setItem('online_shop',productData);
+		count();
+
+
+
+	}
+		// 
+
 	});
 
 	// checkout status
@@ -94,31 +153,49 @@ $(document).ready(function(){
 			var no=1;
 			var html='';
 			$.each(productArray,function(i,v){
-				var name=v.name;
-				var photo=v.photo;
-				var unit_price=v.price;
-				var discount=v.discount;
-				var qty=v.qty;
+				if (v.cid) {
+					var name=v.cname;
+					var photo=v.cphoto;
+					var unit_price=v.cprice;
+					var discount=v.cdiscount;
+					var qty=v.qty;
 
-				if (discount) {
-					var price_show=discount+'<del class="d-block">'+unit_price+'</del>';
-					var price = discount;
-				}else{
-					var price_show = unit_price;
-					var price = unit_price;
+					if (discount) {
+						var price_show=discount+'<del class="d-block">'+unit_price+'</del>';
+						var price = discount;
+					}else{
+						var price_show = unit_price;
+						var price = unit_price;
+					}
 				}
+				else{
+					var name=v.pname;
+					var photo=v.pphoto;
+					var unit_price=v.pprice;
+					var discount=v.pdiscount;
+					var qty=v.qty;
+
+					if (discount) {
+						var price_show=discount+'<del class="d-block">'+unit_price+'</del>';
+						var price = discount;
+					}else{
+						var price_show = unit_price;
+						var price = unit_price;
+					}
+				}
+				
 
 				html+=`<tr>
-							<td>${no++}</td>
-							<td>${name}</td>
-							<td><img src="${photo}" width="100"></td>
-							<td>${price_show}</td>
-							<td>
-								<button class="min" data-product_i="${i}">-</button>${qty}<button class="max" data-product_i="${i}">+</button>
-							</td>
-							<td>${price*qty}</td>
-						</tr>`
-						total+=price*qty;
+				<td>${no++}</td>
+				<td>${name}</td>
+				<td><img src="${photo}" width="100"></td>
+				<td>${price_show}</td>
+				<td>
+				<button class="min btn btn-secondary" data-product_i="${i}">-</button>${qty}<button class="max btn btn-secondary" data-product_i="${i}">+</button>
+				</td>
+				<td>${price*qty}</td>
+				</tr>`
+				total+=price*qty;
 			});
 				html+=`<tr>
 							<td colspan="5">Total</td>
@@ -208,16 +285,17 @@ $(document).ready(function(){
 		// alert(notes);
 		// var total = $('.total').val();
 
+
 		var shopString = localStorage.getItem("online_shop");
 		if (shopString) {
 			// var shopArray = JSON.parse(shopString);
 
 			$.post('/orders',{shop_data:shopString,notes:notes},function(response){
 				if (response) {
-					alert(response);
-					localStorage.clear();
+					// alert(response);
+					// localStorage.clear();
 					getData();
-					location.href="/";
+					// location.href="/";
 				}
 			});
 		}

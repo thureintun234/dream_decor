@@ -35,7 +35,7 @@
 					<div class="text-center">
 						<a href="{{route('package')}}">
 							<div class="card cardimg">
-								<img src="{{$package->photo}}" class="card-img-top">
+								<img src="{{$package->photo}}" class="card-img-top" width="200" height="200">
 								<div class="card-body">
 									<a href="" class="text-muted">
 										{{$package->name}}
@@ -73,8 +73,8 @@
                     <!-- popup-->
                     @foreach($items as $item)
                     <div id="{{$item->id}}" class="popup-effect">
-                        <div class="popup">
-                            <img src="{{$item->photo1}}" alt="Popup image" class="mt-4" width="200" height="200" />
+                        <div class="popup"><a href="{{'item'}}">
+                            <img src="{{$item->photo1}}" alt="Popup image" class="mt-4" width="200" height="200" /></a>
                             <a class="close" href="#gallery">&times;</a>
                         </div>
                     </div>
@@ -124,4 +124,8 @@
     		</div>
     	</div>
     </div>
+@endsection
+
+@section('script')
+<script type="text/javascript" src="{{asset('frontend/js/script.js')}}"></script>
 @endsection

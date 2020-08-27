@@ -68,16 +68,20 @@
 									<ul class="navbar-nav">
 										<li class="nav-item">
 											<form method="POST" action="{{route('searchkey')}}" role="search">
+												<div class="d-flex justify-content-between align-items-center">
 												@csrf
 												
 											<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="site_search">
 											
 											<button type="submit" class="btn btn-outline-success" value="Search">Search
 											</button>	
+											<div class="d-flex justify-content-between align-items-center">
 											</form>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" href="#"><i class="fas fa-heart fa-2x"></i></a>
+											<a class="nav-link" href="{{route('view_wishlist')}}"><i class="fas fa-heart fa-2x"></i>
+												{{-- <span style="color:green; font-weight: bold;">({{App\Wishlist::count()}})</span> --}}
+											</a>
 										</li>
 										<li class="nav-item cat_img">
 											<a class="nav-link" href="{{route('checkout')}}">
