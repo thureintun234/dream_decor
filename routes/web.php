@@ -51,11 +51,15 @@ Route::get('packagedetail/{id}', 'FrontendController@packagedetail')->name('pack
 
 Route::get('itemdetail/{id}', 'FrontendController@itemdetail')->name('itemdetail');
 
-<<<<<<< HEAD
+
 Route::get('sale','FrontendController@sale')->name('sale');
 
 Route::get('branditem','FrontendController@branditem')->name('branditem');
-=======
+
+Route::get('contact','FrontendController@contact')->name('contact');
+
+Route::get('about','FrontendController@about')->name('about');
+
 //search
 Route::post('search','FrontendController@search')->name('searchkey');
 
@@ -65,7 +69,8 @@ Route::post('search','FrontendController@search')->name('searchkey');
 // Route::get('/WishList','FrontendController@View_wishList');
 
 // Route::get('/removeWishList/{id}','FrontendController@removeWishList');
->>>>>>> 1f984b72bc257242e3be253211c95b4945f850c8
+
+
 
 
 

@@ -43,9 +43,9 @@
 	<header class="main_header" id="dreamdecor">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light py-4 mr-4">
 			<div class="container-fluid">
-				<a class="navbar-brand img-thumbnail border-0 ml-4" href="{{route('dreamdecor')}}">
-					<img src="{{asset('frontend/images/logo.png')}}" class="img-fluid" width="80">
-					<p class="text-monospace">Dream Decor</p>
+				<a href="{{route('dreamdecor')}}">
+					<img src="{{asset('frontend/images/logo.png')}}" class="img-fluid" width="100">
+					<p class="text-monospace dreamdecor">DreamDecor</p>
 				</a>
 				
 
@@ -59,7 +59,7 @@
 										<a class="nav-link" href="{{route('register')}}">Register</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="{{route('profile')}}">{{ Auth::user()->name }}</a>
+										<a class="nav-link" href="{{route('profile')}}">{{-- {{ Auth::user()->name }} --}}</a>
 									</li>
 								</ul>
 							</div>
@@ -97,72 +97,113 @@
 		@yield('content')
 
 
+		<!--/shipping-->
+		<section class="shipping">
+			<div class="shiopping-grids d-lg-flex">
+				<div class="col-lg-4 shiopping-pvt-gd text-center">
+					<div class="icon-gd"><span class="fa fa-truck" aria-hidden="true"></span>
+					</div>
+					<div class="icon-gd-info">
+						<h3>FREE SHIPPING</h3>
+						<p>On all order over $2000</p>
+					</div>
+				</div>
+				<div class="col-lg-4 shiopping-pvt-gd sec text-center">
+					<div class="icon-gd"><span class="fa fa-bullhorn" aria-hidden="true"></span></div>
+					<div class="icon-gd-info">
+						<h3>FREE RETURN</h3>
+						<p>On 1st exchange in 30 days</p>
+					</div>
+				</div>
+				<div class="col-lg-4 shiopping-pvt-gd text-center">
+					<div class="icon-gd"> <span class="fa fa-gift" aria-hidden="true"></span></div>
+					<div class="icon-gd-info">
+						<h3>PACKAGES</h3>
+						<p>Set Of Best Products in a Package.</p>
+					</div>
+
+				</div>
+			</div>
+
+		</section>
+		<!--//shipping-->
 
 		
 
-		<!-- Footer Start -->
-		<div class="footer">
-			<div class="container">
-				<div class="footer-top">
-					<div class="row">
+		<!-- footer -->
+		<div class="footer_agileinfo_topf py-5">
+			<div class="container py-md-5">
+				<div class="row">
+					<div class="col-lg-2 footer_wthree_gridf mt-lg-4 ">
+						<a href="{{route('dreamdecor')}}">
+							<img src="{{asset('frontend/images/logo.png')}}" class="img-fluid" width="100">
+							<p class="text-monospace dreamdecor">DreamDecor</p>
+						</a> 
 						
-						<div class="col-md-3 amet-sed">
-							<a class="navbar-brand img-thumbnail border-0 ml-4" href="{{route('dreamdecor')}}">
-								<img src="{{asset('frontend/images/logo.png')}}" class="img-fluid" width="80">
-								<p class="text-monospace">Dream Decor</p>
-							</a>
-						</div>
+						{{-- <label class="sub-des2">Online Store</label> --}}
+					</div>
+					<div class="col-lg-3 footer_wthree_gridf mt-md-0 mt-4">
+						<ul class="footer_wthree_gridf_list">
+							<li>
+								<a href="{{route('dreamdecor')}}"><span class="fa fa-angle-right" aria-hidden="true"></span> Home</a>
+							</li>
+							<li>
+								<a href="{{route('about')}}"><span class="fa fa-angle-right" aria-hidden="true"></span> About</a>
+							</li>
+							<li>
+								<a href="{{route('item')}}"><span class="fa fa-angle-right" aria-hidden="true"></span> Shop</a>
+							</li>
+							<li>
+								<a href="{{route('package')}}"><span class="fa fa-angle-right" aria-hidden="true"></span>Package</a>
+							</li>
 
-						<div class="col-md-3 amet-sed">
-							<h4>Contact</h4>
-							<div class="info">
-								<div class="address">
-									<li><i class="icofont-google-map"></i>
-									<h5>Location:</h5>
-									<p>corner of 59 & 39,<br> Maharaung Myay, Mandalay</p></li>
-								</div>
+						</ul>
+					</div>
+					<div class="col-lg-4 footer_wthree_gridf mt-md-0 mt-sm-4 mt-3">
+						<ul class="">
+							<a href="{{route('contact')}}"><span class="fa fa-angle-right mb-2 mt-4" aria-hidden="true"></span> Contact Us</a>
+							<p><i class="fas fa-phone-alt"></i><span> +95998766543</span></p>
+							<p><i class="fas fa-envelope"></i><span> dreamdecor@gmail.com</span></p>
+							<p><i class="fas fa-map-marker-alt"></i><span> Corner of main road and 38th street.</span></p>
+						</ul>
+					</div>
 
-								<div class="email">
-									
-									<li><i class="icofont-envelope"></i><a class="email"href="#"> dreamdecor@gmial.com</a></li>
-									
-								</div>
+					<div class="col-lg-3 footer_wthree_gridf mt-md-0 mt-sm-4 mt-3">
+						<ul class="footer_wthree_gridf_list">
+							<li>
+								<a href="{{route('login')}}"><span class="fa fa-angle-right" aria-hidden="true"></span> Login </a>
+							</li>
 
-								<div class="phone">
-									<li><i class="icofont-phone"></i>
-									<h5>Call:</h5>
-									<p>+959 977295877</p></li>
-								</div>
-							</div>
-						</div>
-						
-						
-						<div class="col-md-3 amet-sed">
-							<h4>Aubout</h4>
-						</div>
-						<div class="col-md-3 amet-sed ">
-							<h4>Follow Us</h4>
-							<ul class="social-icons2 wow slideInDown" data-wow-duration="1s" data-wow-delay=".3s">
-								<div class="row">
-									<div class="col-lg-4 col-md-4 col-sm-4">
-										<li><a href="https://twitter.com" class="tw"></a></li>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4">
-										<li><a href="https://www.facebook.com" rel="me" title="Facebook" target="_blank" class="fb"> </a></li>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4">
-										<li><a href="" class="in"></a></li>
-									</div>
-									
-									<div class="clearfix"></div>
-								</div>
-							</ul>
-						</div>
-					</div>		
+							<li>
+								<a href="{{route('register')}}"><span class="fa fa-angle-right" aria-hidden="true"></span>Register</a>
+							</li>
+							
+
+						</ul>
+					</div>
 				</div>
-						<p class="footer-class">© 2016 Inventive Design . All Rights Reserved | Design by <a href="">EXCELLENT</a></p>
+
+				<div class="w3ls-fsocial-grid">
+					<h3 class="sub-w3ls-headf">Follow Us</h3>
+					<div class="social-ficons">
+						<ul class="footer-final">
+							<li><a href="https://www.facebook.com" class="facebook"><img src="{{asset('frontend/images/fb.png')}}" class="img-fluid" width="50" height="50"> Facebook</a></li>
+							<li><a href="https://twitter.com" class="twitter"><img src="{{asset('frontend/images/tw.png')}}" class="img-fluid" width="50" height="50"> Twitter</a></li>
+							<li><a href="https://plus.google.com" class="google"><img src="{{asset('frontend/images/gg.png')}}" class="img-fluid" width="50" height="50"> Google</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="move-top text-center mt-lg-4 mt-3">
+					<a href="#dreamdecor"><span class="fa fa-angle-double-up" aria-hidden="true"></span></a>
+				</div>
 			</div>
 		</div>
+		<!-- //footer -->
+
+		<div class="container-fluid">
+			<p class="footer-class">© 2016 Inventive Design . All Rights Reserved | Design by <a href="#">DreamDecor</a></p>
+		</div>
+			
 		<!--start-smooth-scrolling-->
 		{{-- <script type="text/javascript">
 			$(document).ready(function() {				
@@ -173,7 +214,7 @@
 		</script> --}}
 		<!--end-start-smooth-scrolling-->
 
-		<a href="#dreamdecor" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		
 
 
 

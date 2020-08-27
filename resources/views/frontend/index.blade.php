@@ -26,10 +26,17 @@
 			</div>
 		</div>
 
+        <div class="container-fluid text-center mb-lg-5">
+            <img src="{{'frontend/images/inboxlogo1.png'}}" class="img-fluid text-center" width="150" height="150" >   
+            <h5 class="welcome text-center">WELCOME TO DREAMDECOR</h5>
+            <P class="text-center mt-3"><i class="furnishing fa fa-star fa-spin fa-1x"></i><span class="furnishing_txt mx-4">   Furnishing Your Life   </span>  <i class="furnishing fa fa-star fa-spin fa-1x"></i></P>  
+        </div>
+        <br><br>
+
 		<!-- News slide for packages -->
-		<div class="container">
-			<div class=" my-5">
-				<h1 class="text-center">Recommend Packages For you</h1>
+		<div class="container ">
+			{{-- <div class="m"> --}}
+				<h5 class="recommended text-center mt-lg-5">RECOMMENDED PACKAGES FOR YOU</h5>
 				<div class="slick_slider slider">
 					@foreach($packages as $package)
 					<div class="text-center">
@@ -46,17 +53,18 @@
 					</div>
 					@endforeach
 				</div>
-			</div>
+			{{-- </div> --}}
 		</div>
 
 		<!-- Trending Now -->
 		<section class="banner-bottom py-5">
-        <div class="container py-md-5">
+        <div class="container-fluid py-md-5">
 
 
-            <div class="row">
+            <div class="row ml-lg-5 text-center">
                 <div class="col-lg-4 gallery-content-info text-center mt-lg-5">
-                    <h3 class="title-wthree text-monospace text-secondary mb-lg-5 mb-4">Trending Product </h3>
+                    <h5 class="heading_index mt-lg-5 mb-lg-5 mb-4">TRENDING PRODUCTS </h5>
+                    <p class="p_index">The Finnish Design Shop team was there to check out the favorite brands’ new products for the spring – view our list of the most interesting designs! </p>
                     <a href="{{route('item')}}" class="btn btn-danger btn-lg shop mt-3">Shop Now</a>
 
                 </div>
@@ -92,36 +100,23 @@
 
     <div class="container-fluid">
     	<div class="row py-4">
-    		<div class="col-lg-4 col-md-4 col-sm-4">
-    			<div class="btm-right1">
-    				<a href="bestseller.html">
-    					<img src="{{asset('frontend/images/abyamara.jpg')}}" alt="" class="img-fluid" fluid>
-    					<div class="captn1">
-    						<h5>Best Seller</h5>
-    					</div>
-    				</a>	
-    			</div>
-    		</div>
-    		<div class="col-lg-4 col-md-4 col-sm-4">
-    			<div class="btm-right1">
-    				<a href="bestseller.html">
-    					<img src="{{asset('frontend/images/new.jpg')}}" alt="" class="img-fluid">
-    					<div class="captn1">
-    						<h5>New Arrivals</h5>
-    					</div>
-    				</a>	
-    			</div>
-    		</div>
-    		<div class="col-lg-4 col-md-4 col-sm-4">
-    			<div class="btm-right1">
-    				<a href="{{'branditem'}}">
-    					<img src="{{asset('frontend/images/abyamara.jpg')}}" alt="" class="img-fluid">
-    					<div class="captn1">
-    						<h5>Brands</h5>
-    					</div>
-    				</a>	
-    			</div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="btm-right1">
+                    <a href="{{'branditem'}}">
+                        <img src="{{asset('frontend/images/brands.gif')}}" alt="" class="img-fluid">
+                        <div class="captn1">
+                            <h5 class="heading_index">SEARCH BRANDs</h5>
+                        </div>
+                    </a>    
+                </div>
+            </div>
+    		<div class="col-lg-6 col-md-6 col-sm-6 py-5 mb-3 text-center">
+                <h5 class="heading_index mt-lg-5 mb-5">SEARCH BRANDS</h5>
+                <p class="p_index mb-lg-5">Discover our curated selection of designer homeware and luxury furniture brands we are welcoming to DreamDecor this season.</p>
+                <a href="{{route('branditem')}}" class="btn btn-danger btn-lg shop mt-3">More Brands</a>
     		</div>
     	</div>
     </div>
+
+    
 @endsection

@@ -1,4 +1,7 @@
 @extends('frontendtemplate')
+@section('nav')
+    @include('frontend.nav')
+@endsection
 @section('content')
 	<div class="container my-3">
 		<h1 class="text-center py-3">Brands Collection</h1>

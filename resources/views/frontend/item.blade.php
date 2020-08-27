@@ -18,6 +18,7 @@
 					<img src="{{$item->photo1}}" class="card-img-top" width="200" height="200"></a>
 				<div class="card-body text-center">
 					<h5 class="card-title">{{$item->name}}</h5>
+					
 					<p>Price:: <span><del>{{$item->price}}MMK</del></span>
 						{{$item->discount}}MMK
 					</p>
@@ -31,7 +32,7 @@
 			</div>
 		</div>
 		@endforeach
-					<div class="card" style="width: 18rem;">
+					{{-- <div class="card" style="width: 18rem;">
 					<a href="{{route('itemdetail',$item->id)}}">
 					<img src="{{asset($item->photo1)}}" class="card-img-top" width="200" height="200"></a>
 					<div class="card-body text-center">
@@ -44,7 +45,7 @@
 					</div>
 					</div>
 					</div>
-		@endforeach	
+		@endforeach	 --}}
 
 	</div>
 </div>

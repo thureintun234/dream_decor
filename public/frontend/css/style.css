@@ -1,8 +1,329 @@
+
+
 ul.navigation li:hover a{
 	background-color: white;
 	color:black !important;
   display: inline-block;
 }
+
+
+/*Welcome(index)*/
+i.furnishing{
+   text-shadow:2px 4px 6px cyan; 
+   font-size: 20px;
+   color:green;
+   width: 5px;
+   height: 3px;
+
+}
+.welcome{
+  font: 2rem 'AmstelvarAlpha', sans-serif;
+  font-family:georgia, serif;
+  color:#381704;
+   font-size:29px;
+   letter-spacing:0.1em;
+   line-height:250%;
+   padding-top:11px;
+}
+.furnishing_txt{
+  font: 2rem 'AmstelvarAlpha', sans-serif;
+  font-family:georgia, serif;
+  font-size: 25px;
+}
+
+/*end Welcome*/
+
+/*p dreamdecor(Logo Text) */
+p.dreamdecor{
+  font-family:georgia, serif;
+  color:#381704;
+  font-size: 20px;
+}
+
+/*end p dreamdecor */
+
+/*recommended*/
+h5.recommended{
+  font: 2rem 'AmstelvarAlpha', sans-serif;
+  font-family:georgia, serif;
+  color:#381704;
+   font-size:29px;
+   letter-spacing:0.1em;
+   line-height:250%;
+   padding-top:11px;
+}
+/*end recommended*/
+
+/*index (Headings)*/
+h5.heading_index{
+  font-family:georgia, serif;
+   color:#381704;
+   font-size:29px;
+   letter-spacing:0.1em;
+   line-height:250%;
+   padding-top:11px;
+}
+/*end index (Headings)*/
+
+
+/*Paragraph (index)*/
+p.p_index{
+ font-family:   Gill Sans Extrabold,'Times New Roman', sans-serif;, 
+ font-weight: normal;
+ font-size: 1.5em;
+ letter-spacing: .02em;
+ line-height: 0.9em;
+ margin:0px;
+ text-align: center;
+}
+
+
+/*Contact*/
+h5.contact{
+  font-family:georgia, serif;
+   color:#381704;
+   font-size:29px;
+   letter-spacing:0.1em;
+   line-height:250%;
+   padding-top:11px;
+}
+
+/*--/shipping-grids--*/
+.shiopping-pvt-gd {
+    background: #080808;
+    padding: 2em;
+}
+
+.shiopping-pvt-gd.sec {
+    background: #333;
+}
+
+.shiopping-pvt-gd:hover {
+    background: #4989c4;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+.shiopping-pvt-gd h3 {
+    font-size: 1.2em;
+    color: #fff;
+    margin: 0.5em 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.icon-gd span {
+    font-size: 2em;
+    text-align: center;
+    color: #ec1c24;
+    margin-bottom: 0.3em;
+}
+
+/*--//shipping-grids--*/
+
+/*Footer*/
+
+/* footer logo */
+.footer_wthree_gridf h2 a {
+    display: inline-block;
+    font-weight: 300;
+    font-size: 1em;
+    letter-spacing: 1px;
+    color: #333;
+    text-shadow: 2px 5px 3px rgba(0, 0, 0, 0.06);
+    padding: 0;
+}
+.dd{
+
+    font-family: "Arial", Helvetica, sans-serif;
+
+    font-weight: normal;
+
+}
+
+.footer_wthree_gridf h2 a span {
+    font-weight: 700;
+    color: #74d2e7;
+    font-size: 1.4em;
+}
+
+.sub-des2 {
+    text-transform: uppercase;
+    display: block;
+    font-size: 0.7em;
+    margin: 0;
+    color: #999;
+    letter-spacing: 7px;
+    font-weight: 600;
+    text-shadow: 3px 1px 3px rgba(78, 73, 73, 0.21);
+}
+
+/* //footer logo */
+.cpy-right {
+    background: #eff1f1;
+}
+
+/* footer navigation */
+.footer_wthree_gridf_list li {
+    list-style: none;
+}
+
+.footer_wthree_gridf_list li span.fa {
+    color: #ee4f4f;
+    padding-right: 1em;
+}
+
+.footer_wthree_gridf_list li a {
+    color: #555;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75em;
+    display: block;
+    font-weight: 600;
+    margin: 1.8em 0;
+}
+
+.footer_wthree_gridf_list li a:hover {
+    color: #EA4335;
+}
+
+.footer_wthree_gridf_list li:last-child {
+    margin-bottom: 0;
+}
+
+.addressf-agileits-wthree p span.fa {
+    margin-right: .2em;
+    color: #ee4f4f;
+    display: inline-block;
+    text-align: center;
+    font-size: 3em;
+    vertical-align: middle;
+}
+
+h3.sub-w3ls-headf {
+    color: #3a3a3a;
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-bottom: .7em;
+    line-height: 30px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.29);
+}
+
+/* //footer navigation */
+.move-top span {
+    color: #212529;
+    text-align: center;
+    border: none;
+    line-height: 2em;
+}
+
+/* social icons */
+.w3ls-fsocial-grid {
+    padding: 2em 0;
+    border-top: 1px solid #edeff1;
+    margin: 3em 0 0 0;
+    text-align: center;
+    border-bottom: 1px solid #edeff1;
+}
+
+.social-ficons ul {
+    padding: 0;
+    margin: 0;
+}
+
+.social-ficons ul li {
+    display: inline-block;
+    margin: 0 1em;
+}
+
+.social-ficons ul li a {
+    color: #333;
+    text-align: center;
+    font-size: 15px;
+}
+
+.social-ficons ul li a span.fa.fa-facebook {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    background: transparent;
+    margin-right: 4px;
+    color: #3b5998;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.social-ficons ul li a:hover span.fa.fa-facebook {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    background: #3b5998;
+    color: #FFFFFF;
+}
+
+.social-ficons ul li a span.fa.fa-twitter {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    background: transparent;
+    margin-right: 4px;
+    color: #1da1f2;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.social-ficons ul li a:hover span.fa.fa-twitter {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    background: #1da1f2;
+    color: #FFFFFF;
+}
+
+.social-ficons ul li a span.fa.fa-google {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    background: transparent;
+    margin-right: 4px;
+    color: #ea4335;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.social-ficons ul li a:hover span.fa.fa-google {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    background: #ea4335;
+    color: #FFFFFF;
+}
+
+.cpy-right a {
+    color: #888;
+}
+
+/* //social icons */
+/* footer */
+/*--//footer --*/
+/*--responsive--*/
+
+
+
+
 .btm-right1 {
   overflow: hidden;
   position: relative;
@@ -23,7 +344,7 @@ ul.navigation li:hover a{
     position: absolute;
     bottom: -74%;
     right: 0;
-    background-color: rgba(28, 167, 159, 0.54);
+    background-color: rgba(92, 176, 249, 0.54);
     text-align: center;
     -o-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -51,7 +372,7 @@ ul.navigation li:hover a{
 	margin: 1.5em 0 0;
 }
 p.footer-class {
-    font-size: 0.9em;
+    /*font-size: 0.9em;*/
 }
 .footer-class a{
 	    text-decoration: none;
@@ -61,29 +382,30 @@ p.footer-class {
 	color:#fff;
 }
 .footer-top p{
-	    font-size: 0.9em;
+	    /*font-size: 0.9em;*/
 }
-.amet-sed h4{
+.amet-sed {
 	margin: 0 0 0.7em;
     font-size:1.6em;
     color: #fff;
     font-weight: 700;
-	border-left: 6px solid #2ad2c9;
+	/*border-left: 6px solid #2ad2c9;*/
     padding-left: 9px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 }
-.amet-sed p{
+.amet-sed h4 h5 p{
 	margin: 0 0 0.5em;
     color: #C1BFBF;
     line-height: 1.8em;
 }
 ul.social-icons2 {
     margin-top: 24px;
+    list-style-type: none;
 }
 ul.social li{
 	list-style:none;
 	padding:0.5em 0;
-	font-size:0.9em;
+	/*font-size:0.9em;*/
 	    color: #C1BFBF;
 }
 ul.social li i{
@@ -93,7 +415,7 @@ ul.social li i{
 }
 ul.social li a {
 	text-decoration:none;
-	font-size:1em;
+	/*font-size:1em;*/
 	color:#C1BFBF;	
 }
 span.glyphicon.glyphicon-earphone,span.glyphicon.glyphicon-map-marker {
@@ -295,3 +617,15 @@ div.dover{
 
 
 /*end itemdetail*/
+
+
+
+
+/*footer start*/
+  ul.footer-final li a{
+    padding: 1.0em 1.0em;
+    text-shadow: 2px 2px 4px ; 
+    font-size: 20px;
+  }
+
+/*end footer*/

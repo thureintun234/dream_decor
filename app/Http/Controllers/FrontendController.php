@@ -103,6 +103,16 @@ class FrontendController extends Controller
         return view('frontend.brand',compact('brands','categories'));
     }
 
+    public function contact($value='')
+    {
+        return view('frontend.contact');
+    }
+
+    public function about($value='')
+    {
+        return view('frontend.about');
+    }
+
 
     public function search(Request $request)
     {
