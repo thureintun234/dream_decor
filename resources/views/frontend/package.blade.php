@@ -46,8 +46,8 @@
 						<p class="card-text">${v.price}</p>
 					</div>
 					<div class="card-footer text-center">
-						<small class="text-muted font-weight-bold">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-						<button class="btn btn-info cart" data-cid="${v.id}" data-cname="${v.name}" data-cphoto="${v.photo}" data-cprice="${v.price}" data-cdiscount="0">Add To Cart</button>
+						<small class="text-muted font-weight-bold d-block">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+						<button class="btn btn-info cart" data-pid="${v.id}" data-pname="${v.name}" data-pphoto="${v.photo}" data-pprice="${v.price}" data-pdiscount="0">Add To Cart</button>
 					</div>
 				</div>
 			

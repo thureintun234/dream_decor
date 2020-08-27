@@ -1,4 +1,9 @@
 @extends('frontendtemplate')
+
+@section('nav')
+    @include('frontend.nav')
+@endsection
+
 @section('content')
 	<div class="container my-3">
 		<h1 class="text-center py-3">Sale Products</h1>
@@ -12,9 +17,7 @@
 						<div class="card-body text-center">
 							<h5 class="card-title">{{$item->name}}</h5>
 							
-							<p class="product_price">Price:: <span><del>{{$item->price}}MMK</del></span>
-								{{ $item->discount}}MMK
-							</p>
+							<p>{{$item->discount}}</p>
 									
 							<p class="card-text">{{$item->description}}</p>
 							<small class="text-muted font-weight-bold">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -30,4 +33,9 @@
 			</div>
 	</div>
 
+@endsection
+
+
+@section('script')
+<script type="text/javascript" src="{{asset('frontend/js/script.js')}}"></script>
 @endsection

@@ -33,8 +33,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth','admin']],function(){
 
 	Route::resource('/items','ItemController');
 
-	Route::resource('/orders','OrderController');
 });
+	Route::resource('/orders','OrderController');
+	Route::get('/orderdetail','OrderdetailController@orderdetail')->name('orderdetail');
+
 
 
 Route::get('/','FrontendController@index')->name('dreamdecor');
@@ -56,21 +58,36 @@ Route::get('sale','FrontendController@sale')->name('sale');
 
 Route::get('branditem','FrontendController@branditem')->name('branditem');
 
+<<<<<<< HEAD
 Route::get('contact','FrontendController@contact')->name('contact');
 
 Route::get('about','FrontendController@about')->name('about');
 
+=======
+>>>>>>> 33fd9876585b2bc853c7d0d3c51268ad09c6beeb
 //search
 Route::post('search','FrontendController@search')->name('searchkey');
 
-//wishlist
-// Route::get('addToWishList','FrontendController@wishlist')->name('addToWishList');
 
-// Route::get('/WishList','FrontendController@View_wishList');
+
+
+
+
+//wishlist
+Route::post('addToWishList/{id}','FrontendController@addWishList')->name('addToWishList');
+
+Route::get('/WishList','FrontendController@View_wishList')->name('view_wishlist');
+
+
+
+
 
 // Route::get('/removeWishList/{id}','FrontendController@removeWishList');
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 33fd9876585b2bc853c7d0d3c51268ad09c6beeb
 
 
 

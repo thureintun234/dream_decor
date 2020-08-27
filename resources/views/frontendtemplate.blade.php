@@ -49,6 +49,7 @@
 				</a>
 				
 
+<<<<<<< HEAD
 						<div class="row">
 							<div class="col-md-12">
 								<ul class="navbar-nav">
@@ -60,38 +61,86 @@
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="{{route('profile')}}">{{-- {{ Auth::user()->name }} --}}</a>
+=======
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="navbar-nav">
+							@guest
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+							</li>
+							@if (Route::has('register'))
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+							</li>
+							@endif
+							@else
+							<li class="nav-item dropdown">
+								<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+									{{ Auth::user()->name }} <span class="caret"></span>
+								</a>
+
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+									<a class="dropdown-item" href="{{ route('profile') }}"
+									onclick="event.preventDefault();
+									document.getElementById('profile-form').submit();">
+									{{ __('Profile') }}
+								</a>
+
+								<a class="dropdown-item" href="{{ route('logout') }}"
+								onclick="event.preventDefault();
+								document.getElementById('logout-form').submit();">
+								{{ __('Logout') }}
+							</a>
+
+
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								@csrf
+							</form>
+
+							<form id="profile-form" action="{{ route('profile') }}" method="GET" style="display: none;">
+								@csrf
+							</form>
+						</div>
+					</li>
+					@endguest
+				</ul>
+			</div>
+			<div class="col-md-12 my-2">
+				<div class="row">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<form method="POST" action="{{route('searchkey')}}" role="search">
+								<div class="d-flex justify-content-between align-items-center">
+									@csrf
+									
+									<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="site_search">
+									
+									<button type="submit" class="btn btn-outline-success" value="Search">Search
+									</button>	
+									<div class="d-flex justify-content-between align-items-center">
+									</form>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{route('view_wishlist')}}"><i class="fas fa-heart fa-2x"></i>
+										{{-- <span style="color:green; font-weight: bold;">({{App\Wishlist::count()}})</span> --}}
+									</a>
+								</li>
+								<li class="nav-item cat_img">
+									<a class="nav-link" href="{{route('checkout')}}">
+										<i class="fas fa-shopping-cart fa-2x"><span id="count"></i>
+										</a>
+>>>>>>> 33fd9876585b2bc853c7d0d3c51268ad09c6beeb
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-12 my-2">
-								<div class="row">
-									<ul class="navbar-nav">
-										<li class="nav-item">
-											<form method="POST" action="{{route('searchkey')}}" role="search">
-												@csrf
-												
-											<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="site_search">
-											
-											<button type="submit" class="btn btn-outline-success" value="Search">Search
-											</button>	
-											</form>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="#"><i class="fas fa-heart fa-2x"></i></a>
-										</li>
-										<li class="nav-item cat_img">
-											<a class="nav-link" href="{{route('checkout')}}">
-												<i class="fas fa-shopping-cart fa-2x"><span id="count"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
 
-								</div>
 						</div>
-			</div>
-		</nav>
-		@yield('nav')
+					</div>
+				</div>
+			</nav>
+			@yield('nav')
 		</header>
 
 		@yield('content')
@@ -157,6 +206,7 @@
 								<a href="{{route('package')}}"><span class="fa fa-angle-right" aria-hidden="true"></span>Package</a>
 							</li>
 
+<<<<<<< HEAD
 						</ul>
 					</div>
 					<div class="col-lg-4 footer_wthree_gridf mt-md-0 mt-sm-4 mt-3">
@@ -205,6 +255,59 @@
 		</div>
 			
 		<!--start-smooth-scrolling-->
+=======
+						<div class="col-md-3 amet-sed">
+							<h4>Contact</h4>
+							<div class="info">
+								<div class="address">
+									<li><i class="icofont-google-map"></i>
+										<h5>Location:</h5>
+										<p>corner of 59 & 39,<br> Maharaung Myay, Mandalay</p></li>
+									</div>
+
+									<div class="email">
+										
+										<li><i class="icofont-envelope"></i><a class="email"href="#"> dreamdecor@gmial.com</a></li>
+										
+									</div>
+
+									<div class="phone">
+										<li><i class="icofont-phone"></i>
+											<h5>Call:</h5>
+											<p>+959 977295877</p></li>
+										</div>
+									</div>
+								</div>
+								
+								
+								<div class="col-md-3 amet-sed">
+									<h4>Aubout</h4>
+								</div>
+								<div class="col-md-3 amet-sed ">
+									<h4>Follow Us</h4>
+									<ul class="social-icons2 wow slideInDown" data-wow-duration="1s" data-wow-delay=".3s">
+										<div class="row">
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<li><a href="https://twitter.com" class="tw"></a></li>
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<li><a href="https://www.facebook.com" rel="me" title="Facebook" target="_blank" class="fb"> </a></li>
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<li><a href="" class="in"></a></li>
+											</div>
+											
+											<div class="clearfix"></div>
+										</div>
+									</ul>
+								</div>
+							</div>		
+						</div>
+						<p class="footer-class">© 2016 Inventive Design . All Rights Reserved | Design by <a href="">EXCELLENT</a></p>
+					</div>
+				</div>
+				<!--start-smooth-scrolling-->
+>>>>>>> 33fd9876585b2bc853c7d0d3c51268ad09c6beeb
 		{{-- <script type="text/javascript">
 			$(document).ready(function() {				
 
@@ -218,45 +321,45 @@
 
 
 
-<script type="text/javascript" src="{{asset('frontend/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('frontend/slick-master/slick/slick.js')}}"></script>
-@yield('script')
-<script>
+		<script type="text/javascript" src="{{asset('frontend/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('frontend/slick-master/slick/slick.js')}}"></script>
+		@yield('script')
+		<script>
 
 
-	$(document).ready(function(){
-		$('.slick_slider').slick({
-			slidesToShow: 4,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: 2000,
-			responsive: [
-				{
-					breakpoint: 1024,
-					settings: {
-						slidesToShow: 3,
-						slidesToScroll: 3,
-						infinite: true,
-						dots: true
+			$(document).ready(function(){
+				$('.slick_slider').slick({
+					slidesToShow: 4,
+					slidesToScroll: 1,
+					autoplay: true,
+					autoplaySpeed: 2000,
+					responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 3,
+							slidesToScroll: 3,
+							infinite: true,
+							dots: true
+						}
+					},
+					{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
+						}
 					}
-				},
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 2
-					}
-				},
-				{
-					breakpoint: 480,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1
-					}
-				}
-			]
-		});
-	})
-</script>
-</body>
-</html>
+					]
+				});
+			})
+		</script>
+	</body>
+	</html>

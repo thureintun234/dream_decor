@@ -1,7 +1,15 @@
 @extends('frontendtemplate')
+<<<<<<< HEAD
 @section('nav')
     @include('frontend.nav')
 @endsection
+=======
+
+@section('nav')
+    @include('frontend.nav')
+@endsection
+
+>>>>>>> 33fd9876585b2bc853c7d0d3c51268ad09c6beeb
 @section('content')
 	<div class="container my-3">
 		<h1 class="text-center py-3">Brands Collection</h1>
@@ -18,4 +26,8 @@
 			@endforeach
 		</div>
 	</div>
+@endsection
+
+@section('script')
+<script type="text/javascript" src="{{asset('frontend/js/script.js')}}"></script>
 @endsection
