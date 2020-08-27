@@ -293,9 +293,9 @@ $(document).ready(function(){
 			$.post('/orders',{shop_data:shopString,notes:notes},function(response){
 				if (response) {
 					// alert(response);
-					// localStorage.clear();
+					localStorage.clear();
 					getData();
-					// location.href="/";
+					location.href="/";
 				}
 			});
 		}

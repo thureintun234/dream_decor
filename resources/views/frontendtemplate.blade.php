@@ -49,19 +49,8 @@
 				</a>
 				
 
-<<<<<<< HEAD
-						<div class="row">
-							<div class="col-md-12">
-								<ul class="navbar-nav">
-									<li class="nav-item">
-										<a class="nav-link" href="{{route('login')}}">Login</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{route('register')}}">Register</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="{{route('profile')}}">{{-- {{ Auth::user()->name }} --}}</a>
-=======
+
+						
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="navbar-nav">
@@ -131,7 +120,6 @@
 									<a class="nav-link" href="{{route('checkout')}}">
 										<i class="fas fa-shopping-cart fa-2x"><span id="count"></i>
 										</a>
->>>>>>> 33fd9876585b2bc853c7d0d3c51268ad09c6beeb
 									</li>
 								</ul>
 							</div>
@@ -206,7 +194,7 @@
 								<a href="{{route('package')}}"><span class="fa fa-angle-right" aria-hidden="true"></span>Package</a>
 							</li>
 
-<<<<<<< HEAD
+
 						</ul>
 					</div>
 					<div class="col-lg-4 footer_wthree_gridf mt-md-0 mt-sm-4 mt-3">
@@ -250,73 +238,7 @@
 		</div>
 		<!-- //footer -->
 
-		<div class="container-fluid">
-			<p class="footer-class">© 2016 Inventive Design . All Rights Reserved | Design by <a href="#">DreamDecor</a></p>
-		</div>
-			
-		<!--start-smooth-scrolling-->
-=======
-						<div class="col-md-3 amet-sed">
-							<h4>Contact</h4>
-							<div class="info">
-								<div class="address">
-									<li><i class="icofont-google-map"></i>
-										<h5>Location:</h5>
-										<p>corner of 59 & 39,<br> Maharaung Myay, Mandalay</p></li>
-									</div>
-
-									<div class="email">
-										
-										<li><i class="icofont-envelope"></i><a class="email"href="#"> dreamdecor@gmial.com</a></li>
-										
-									</div>
-
-									<div class="phone">
-										<li><i class="icofont-phone"></i>
-											<h5>Call:</h5>
-											<p>+959 977295877</p></li>
-										</div>
-									</div>
-								</div>
-								
-								
-								<div class="col-md-3 amet-sed">
-									<h4>Aubout</h4>
-								</div>
-								<div class="col-md-3 amet-sed ">
-									<h4>Follow Us</h4>
-									<ul class="social-icons2 wow slideInDown" data-wow-duration="1s" data-wow-delay=".3s">
-										<div class="row">
-											<div class="col-lg-4 col-md-4 col-sm-4">
-												<li><a href="https://twitter.com" class="tw"></a></li>
-											</div>
-											<div class="col-lg-4 col-md-4 col-sm-4">
-												<li><a href="https://www.facebook.com" rel="me" title="Facebook" target="_blank" class="fb"> </a></li>
-											</div>
-											<div class="col-lg-4 col-md-4 col-sm-4">
-												<li><a href="" class="in"></a></li>
-											</div>
-											
-											<div class="clearfix"></div>
-										</div>
-									</ul>
-								</div>
-							</div>		
-						</div>
-						<p class="footer-class">© 2016 Inventive Design . All Rights Reserved | Design by <a href="">EXCELLENT</a></p>
-					</div>
-				</div>
-				<!--start-smooth-scrolling-->
->>>>>>> 33fd9876585b2bc853c7d0d3c51268ad09c6beeb
-		{{-- <script type="text/javascript">
-			$(document).ready(function() {				
-
-		 		$().UItoTop({ easingType: 'easeOutQuart' });
-
-			});
-		</script> --}}
-		<!--end-start-smooth-scrolling-->
-
+		
 		
 
 

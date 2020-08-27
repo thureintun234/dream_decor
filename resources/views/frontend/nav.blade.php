@@ -11,7 +11,7 @@
 					</li>
 					@foreach($categories as $category)
 					<li class="nav-item">
-						<a class="nav-link mx-3" href="new.html">
+						<a class="nav-link mx-3" href="{{route('item')}}">
 							{{$category->name}}
 						</a>
 					</li>
